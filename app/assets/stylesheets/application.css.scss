@@ -36,7 +36,7 @@ h1, h2, h3 {
   color: #FFFFFF;
 }
 
-.navbar-default .navbar-nav li a {
+.navbar-default .navbar-nav > li > a {
   color: #FFFFFF;
 }
 
@@ -45,7 +45,7 @@ h1, h2, h3 {
   opacity: 0.75;
 }
 
-.navbar-default .navbar-nav li a:hover {
+.navbar-default .navbar-nav > li > a:hover {
   color: #FFFFFF;
   opacity: 0.75;
 } 
