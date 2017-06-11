@@ -35,7 +35,11 @@
     <div class="container">
       <% flash.each do |type, msg| %>
         <%= content_tag :div, class: "alert alert-#{type}" do %>
-        <i class="glyphicon glyphicon-exclamation-sign"></i>
+          <% if "alert alert-#{type}" == "alert alert-success" %>
+            <i class="glyphicon glyphicon-ok"></i>
+          <% else %>
+            <i class="glyphicon glyphicon-exclamation-sign"></i>
+          <% end %>
         <%= msg %>
         <% end %>
       <% end %>
