@@ -12,4 +12,4 @@ ActionMailer::Base.smtp.settings = {
   :domain         => 'mysterious-basin-55649.herokuapp.com',
   :authentication => :plain,
 }
-ActivationMailer::Base.delivery_method = :smtp
+ActionMailer::Base.delivery_method = :smtp
