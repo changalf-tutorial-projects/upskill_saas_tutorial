@@ -4,7 +4,7 @@
 // Document ready
 $(document).on('turbolinks:load', function() {
   var theForm = $('#pro_form');
-  var submitBtn = $('#form-submit-btn');
+  var submitBtn = $('#form-signup-btn');
   
   // Set Stripe public key
   Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'));
@@ -13,7 +13,7 @@ $(document).on('turbolinks:load', function() {
   submitBtn.click(function(event) {
     // prevent default submission behaviour
     event.preventDefault();
-    submitBtn.val("Processing...").prop("disabled", true);
+    submitBtn.val("Processing...").prop('disabled', true);
     
     // Collect the credit card fields
     var ccNum = $('#card_number').val(), 
@@ -37,19 +37,19 @@ $(document).on('turbolinks:load', function() {
     }
     
     // Validate expiration date
-    if (!Stripe.card.validateCardExpiry(expMonth, expYear)) {
+    if (!Stripe.card.validateExpiry(expMonth, expYear)) {
       error = true;
       alert('Invalid expiration date.');
     }
     
     if (error) {
       // If there are card errors, don't send to Stripe
-      submitBtn.prop("disabled", false).val("Sign Up");
+      submitBtn.prop('disabled', false).val("Sign Up");
     } else {
       // Send card info the Stripe
       Stripe.createToken({
         number: ccNum,
-        cvc: ccNum,
+        cvc: cvcNum,
         exp_month: expMonth,
         exp_year: expYear
       }, stripeResponseHandler);
