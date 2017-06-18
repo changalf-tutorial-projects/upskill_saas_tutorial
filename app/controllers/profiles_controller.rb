@@ -12,7 +12,7 @@ class ProfilesController < ApplicationController
     # Create profile linked to specific user
     @profile = @user.build_profile(profile_params)
     if @profile.save
-      flash[:success] = "Profile Updated"
+      flash[:success] = "Profile Updated!"
       redirect_to root_path
     else
       render action :new
