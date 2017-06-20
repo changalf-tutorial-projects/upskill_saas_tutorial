@@ -15,7 +15,7 @@ class ProfilesController < ApplicationController
     # Create profile linked to specific user
     @profile = @user.build_profile(profile_params)
     if @profile.save
-      flash[:success] = "Profile updated!"
+      flash[:success] = "Profile has been updated."
       redirect_to user_path(id: params[:user_id])
     else
       render action :new
@@ -36,7 +36,7 @@ class ProfilesController < ApplicationController
     @profile = @user.profile
     # Mass assign edited profile attributes and save (update)
     if @profile.update_attributes(profile_params)
-      flash[:success] = "Profile updated!"
+      flash[:success] = "Profile has been updated."
       #Redirect user to their profile page
       redirect_to user_path(id: params[:user_id])
     else 
