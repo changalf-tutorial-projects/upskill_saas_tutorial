@@ -14,8 +14,8 @@ class ProfilesController < ApplicationController
     @user = User.find(params[:user_id])
     # Create profile linked to specific user
     @profile = @user.build_profile(profile_params)
-    if @profile.git save
-      flash[:success] = "Profile Updated!"
+    if @profile.save
+      flash[:success] = "Profile updated!"
       redirect_to user_path(id: params[:user_id])
     else
       render action :new
